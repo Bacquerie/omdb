@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "995fd027-a706-4e54-adfb-45357d54b916",
+		"name": "OMDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetMovies",
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "bacquerie",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "alejandrobacquerie@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchMovies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/search?title=monster",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "monster"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddMonsterHouse",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "bacquerie",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "alejandrobacquerie@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"movieId\": \"tt0385880\",\n    \"rating\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_tt4154756",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rating\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/tt4154756",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tt4154756"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_tt2316411",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/tt2316411",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"tt2316411"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMovies_Otro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "415ebff0-2196-4cd7-90af-2456c2140194",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "05794066-01b7-468d-86ba-fd7afce55084",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "034b6bcb-7bbc-47c5-9eb5-5850440b9db3",
+			"key": "base_url",
+			"value": "http://localhost:8080/movies",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

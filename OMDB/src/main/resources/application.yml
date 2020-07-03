@@ -1,0 +1,44 @@
+omdb:
+  api:
+    base-url: http://www.omdbapi.com
+    key: f106e889
+  
+  movies:
+    sql:
+      delete: >
+        delete from user_rates
+        where user_email = ?
+          and movie_id = ?
+      
+      insert: >
+        insert into user_rates (user_email, movie_id, commentaries, rating, seen)
+          values (?, ?, ?, ?, ?)
+      
+      select-all: >
+        select * from user_rates
+        where user_email = ?
+      
+      select-one: >
+        select * from user_rates
+        where user_email = ? and movie_id = ?
+      
+      update: >
+        update user_rates
+          set commentaries = ?, rating = ?, seen = ?
+          where user_email = ? and movie_id = ?
+    
+logging:
+  level:
+    com.example.omdb: debug
+    
+spring:
+  datasource:
+    url: jdbc:h2:mem:movies.db
+     
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create
